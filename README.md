@@ -2,6 +2,12 @@
 
 github cliを使って指定したissue番号の下にサブタスクを作る
 
+## install
+
+```
+pip install -e .
+```
+
 ## 使い方
 
 1. issue.txt に作成したいタスクを書く
@@ -15,7 +21,10 @@ github cliを使って指定したissue番号の下にサブタスクを作る
 5. コマンドを実行する
 
 ```
-python /path/to/main.py [issue番号]
+python /path/to/main.py --issue [issue番号] --label subtask
+
+# dry mode
+python /path/to/main.py --issue [issue番号] --label subtask --dry
 ```
 
 ## テスト
@@ -27,7 +36,6 @@ python /path/to/test_github.py
 ```
 
 ## やりたい
-
-* setup.pyでパス指定しなくても動くようにしたい
-* コマンドライン引数を使いやすくする
+* issue存在チェック
+* エラー時に止める
 

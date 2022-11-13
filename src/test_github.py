@@ -1,4 +1,4 @@
-import github as gh
+import src.github as gh
 
 print(gh.__get_issue_body(
     '1',
