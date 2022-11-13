@@ -16,32 +16,16 @@ pip uninstall gh-subtask
 
 ## 使い方
 
-1. issue.txt に作成したいタスクを書く
-
-2. github cliをインストール
-
-3. 認証を済ます
-
-4. issueを作成したリポジトリに移動する
-
-5. コマンドを実行する
+1. github cliをインストール
+1. 認証を済ます
+1. issueを作成したリポジトリに移動する
+1. 作成する
+1. コマンドを実行する
 
 ```
-gh-subtask --issue [issue番号] --label subtask
+gh-subtask --issue [issue番号] --label subtask --issue_file issue.txt
 
 # dry mode
-gh-subtask --issue [issue番号] --label subtask --dry
+gh-subtask --issue [issue番号] --label subtask --issue_file issue.txt --dry --debug
 ```
-
-## テスト
-
-githubの認証がうまく言っているか確認するスクリプト
-
-```
-python /path/to/test_github.py
-```
-
-## やりたい
-* issue存在チェック
-* エラー時に止める
 

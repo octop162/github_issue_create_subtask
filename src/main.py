@@ -30,6 +30,11 @@ def command(
     label = str(label)
     issue_file = str(issue_file)
 
+    # check parent issue
+    if debug:
+        print('## check parent issue')
+    gh.check_parent_issue(issue)
+
     # create subtask
     if debug:
         print('## create subtask')

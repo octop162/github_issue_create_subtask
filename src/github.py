@@ -8,6 +8,12 @@ def test_github():
     __check_gh_command(result, echo=False)
 
 
+def check_parent_issue(issue: str):
+    command = ["gh", "issue", "view", issue, "--json", "body"]
+    result = subprocess.run(command, capture_output=True)
+    __check_gh_command(result, echo=False)
+
+
 def create_issue(
     title='',
     body='',
@@ -53,7 +59,7 @@ def __get_issue_body(
 def __check_gh_command(result: subprocess.CompletedProcess, echo=True):
     if echo:
         print(result.stdout.decode('utf-8'))
-        print(result.stderr.decode('utf-8'))
+    print(result.stderr.decode('utf-8'))
     try:
         result.check_returncode()
     except subprocess.CalledProcessError:
