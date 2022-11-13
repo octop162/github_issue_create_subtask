@@ -38,7 +38,7 @@ def command(
     # create subtask
     if debug:
         print('## create subtask')
-    child_body = f'- #{issue}'
+    child_body = f'## 親Issue\n- #{issue}'
     with open(f'{issue_file}', 'r') as f:
         lines = [line.rstrip() for line in f.readlines()]
     numbers = []
