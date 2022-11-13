@@ -3,13 +3,10 @@ import fire
 import src.github as gh
 
 
-SCRIPT_PATH = os.path.dirname(__file__)
-
-
 def command(
     issue,
     label,
-    issue_file='issues.txt',
+    issue_file,
     dry=False,
     debug=False,
 ):
@@ -37,7 +34,7 @@ def command(
     if debug:
         print('## create subtask')
     child_body = f'- #{issue}'
-    with open(f'{SCRIPT_PATH}/{issue_file}', 'r') as f:
+    with open(f'{issue_file}', 'r') as f:
         lines = [line.rstrip() for line in f.readlines()]
     numbers = []
     for line in lines:
