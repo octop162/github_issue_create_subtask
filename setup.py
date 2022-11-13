@@ -7,7 +7,7 @@ setup(
     install_requires=['fire'],
     entry_points={
         "console_scripts": [
-            "gh-subtask=src.main:entry",
+            "gh-subtask=src.main:main",
         ],
     },
 )

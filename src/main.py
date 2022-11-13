@@ -6,22 +6,36 @@ import src.github as gh
 SCRIPT_PATH = os.path.dirname(__file__)
 
 
-def main(
+def command(
     issue,
     label,
-    dry=False,
     issue_file='issues.txt',
+    dry=False,
+    debug=False,
 ):
+    # test gh command
+    gh.test_github()
+    
     # debug
-    print(f'issue={issue}')
-    print(f'label={label}')
-    print(f'dry={dry}')
+    if debug:
+        print('## auguments')
+        print(f'issue={issue}')
+        print(f'label={label}')
+        print(f'issue_file={issue_file}')
+        print(f'debug={debug}')
+        print(f'dry={dry}')
+        print('')
 
     # convert type
+    if debug:
+        print('## convert type')
     issue = str(issue)
     label = str(label)
+    issue_file = str(issue_file)
 
     # create subtask
+    if debug:
+        print('## create subtask')
     child_body = f'- #{issue}'
     with open(f'{SCRIPT_PATH}/{issue_file}', 'r') as f:
         lines = [line.rstrip() for line in f.readlines()]
@@ -35,15 +49,17 @@ def main(
         )
         numbers.append(number)
 
-    # edit parent task
+    # edit parent issue 
+    if debug:
+        print('## edit parent issue')
     gh.add_subtasks_to_parent_issue(
         issue=issue,
         child_issues=numbers,
         dry=dry,
     )
 
-def entry():
-    fire.Fire(main)
+def main():
+    fire.Fire(command)
 
 if __name__ == '__main__':
-    fire.Fire(main)
+    main()

@@ -8,6 +8,12 @@ github cliを使って指定したissue番号の下にサブタスクを作る
 pip install -e .
 ```
 
+## uninstall
+
+```
+pip uninstall gh-subtask
+```
+
 ## 使い方
 
 1. issue.txt に作成したいタスクを書く
@@ -21,10 +27,10 @@ pip install -e .
 5. コマンドを実行する
 
 ```
-python /path/to/main.py --issue [issue番号] --label subtask
+gh-subtask --issue [issue番号] --label subtask
 
 # dry mode
-python /path/to/main.py --issue [issue番号] --label subtask --dry
+gh-subtask --issue [issue番号] --label subtask --dry
 ```
 
 ## テスト
